@@ -32,6 +32,34 @@ jobs:
         with:
           name: java-workflow
           path: target/surefire-reports/
+
+  lint:
+    name: LintCheck
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Build and Test with Lint
+        run: mvn checkstyle:check
+
+
+      - name: Archieve test results linter
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: java-workflow
+          path: target/checkstyle-result.xml
+      
+
+      
    
 
     
