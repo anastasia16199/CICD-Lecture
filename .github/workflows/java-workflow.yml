@@ -13,10 +13,10 @@ jobs:
   password_please:
     runs-on: ubuntu-latest
     env:
-      Vorlesungs_Partner: Student
+      Vorlesung_Partner: Student
     steps:
       - name: Secret dialog
-        run: echo $Greeting $Vorlesungspartner_Partner, das Passwort für $Password_Use ist ${{ secrets.LECTURE_PASSWORD }}!
+        run: echo $Greeting $Vorlesung_Partner, das Passwort für $Password_Use ist ${{ secrets.LECTURE_PASSWORD }}!
         env:
           Password_use: 'vorlesung'
 
