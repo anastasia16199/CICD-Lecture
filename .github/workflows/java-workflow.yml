@@ -55,7 +55,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: java-workflow
+          name: lint-workflow
           path: target/checkstyle-result.xml
       
 
